@@ -4,7 +4,7 @@ import LoadingIcon from "./assets/loading.svg";
 import MovieCard from "./components/MovieCard";
 
 const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-const API_URL = "http://www.omdbapi.com?apikey=" + API_KEY;
+const API_URL = "https://www.omdbapi.com?apikey=" + API_KEY;
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,9 +19,7 @@ const App = () => {
     setLoading(true);
 
     try {
-      // const fetchURL = movieTitle ? API_URL + "&s=" + movieTitle : API_URL;
-      const fetchURL = API_URL + "&s=" + movieTitle;
-      const response = await fetch(fetchURL);
+      const response = await fetch(API_URL + "&s=" + movieTitle);
       if (!response.ok) {
         return [];
       }
