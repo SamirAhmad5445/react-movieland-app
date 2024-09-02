@@ -16,7 +16,6 @@ const App = () => {
   }, []);
 
   const fetchMovies = async (movieTitle) => {
-    console.log("Fetching movies...");
     setLoading(true);
 
     try {
@@ -28,7 +27,6 @@ const App = () => {
       }
 
       const data = await response.json();
-      console.log(data);
       setLoading(false);
       setMovies(data.Search || []);
     } catch (e) {
